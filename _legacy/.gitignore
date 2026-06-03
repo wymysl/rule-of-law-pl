@@ -1,0 +1,9 @@
+.superpowers/
+.DS_Store
+node_modules/
+.claude/
+.env.local
+Rule of law_redesigned/
+Rule of law/
+HUDOC FILES/
+*.diff

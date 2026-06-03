@@ -7,6 +7,16 @@
 // judgment links live in data/cases.js under the same caseId.
 export const STORY = {
   title: { en: 'The crisis in seven judgments', pl: 'Kryzys w siedmiu wyrokach' },
+  // Narration audio for story mode (English). A play button appears in the
+  // story; as the audio reaches each section the story scrolls to it.
+  audio: 'data/audio/story.mp3',
+  // Optional precise sync. Provide one start time (in SECONDS, from the audio)
+  // for EACH step below — the moment that step's narration begins. When this
+  // array is present it drives the auto-scroll exactly. When it is null, the
+  // app falls back to estimating each section's start from its word count
+  // scaled to the audio's real duration (good, but not frame-accurate).
+  // Format example for 9 steps: [0, 35, 72, 119, 165, 201, 234, 269, 309]
+  audioCues: [0, 44, 85, 143, 198, 245, 285, 329, 380],
   steps: [
     {
       caseId: null,

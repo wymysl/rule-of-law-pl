@@ -1,0 +1,11 @@
+0000000000000000000000000000000000000000 5316e6fef2e0452401cb9742e9809f24f2198be9 Piotr <piotr@Piotrs-MacBook-Pro.local> 1780413043 +0200	commit (initial): Add design spec for Rule of Law explainer
+5316e6fef2e0452401cb9742e9809f24f2198be9 1dcc43f689f0f3c73a26358e66da546443d76f71 Piotr <piotr@Piotrs-MacBook-Pro.local> 1780413567 +0200	commit: Add implementation plan for Rule of Law explainer
+1dcc43f689f0f3c73a26358e66da546443d76f71 90933f5f16535e7d05c28413c395b412d5a2cfe8 Piotr <piotr@Piotrs-MacBook-Pro.local> 1780435566 +0200	merge build/explainer-app: Fast-forward
+90933f5f16535e7d05c28413c395b412d5a2cfe8 9d7e054504ceef1130602306faf15b42234b660c Piotr <piotr@Piotrs-MacBook-Pro.local> 1780469540 +0200	merge improve/ux-a11y: Merge made by the 'ort' strategy.
+9d7e054504ceef1130602306faf15b42234b660c f2a450a391f055d72650f0cd0caf7adcdc3311a0 Piotr <piotr@Piotrs-MacBook-Pro.local> 1780472078 +0200	merge feat/story-and-fixes: Merge made by the 'ort' strategy.
+f2a450a391f055d72650f0cd0caf7adcdc3311a0 cd48577726af3e0383b0129013641f1f3e8ba63e Piotr <piotr@Piotrs-MacBook-Pro.local> 1780473726 +0200	merge feat/search-glossary-plain-and-modal: Merge made by the 'ort' strategy.
+cd48577726af3e0383b0129013641f1f3e8ba63e 56988f88fed74bcc915564168bf17b8c89e82e37 Piotr <piotr@Piotrs-MacBook-Pro.local> 1780475608 +0200	merge feat/story-keynote: Merge made by the 'ort' strategy.
+56988f88fed74bcc915564168bf17b8c89e82e37 526c5fdf1b19f3085b8458edf5afb266124dd84f Piotr <piotr@Piotrs-MacBook-Pro.local> 1780482567 +0200	merge feat/add-morawiec: Merge made by the 'ort' strategy.
+526c5fdf1b19f3085b8458edf5afb266124dd84f 42fbc0fc09bd76e85be3aa8688deec72f116bd04 Piotr <piotr@Piotrs-MacBook-Pro.local> 1780482620 +0200	commit: chore: stop tracking the local 'Rule of law_redesigned' WIP folder
+42fbc0fc09bd76e85be3aa8688deec72f116bd04 ff33980768241fcdc99e527037d4b6aef75f26af Piotr <piotr@Piotrs-MacBook-Pro.local> 1780482784 +0200	commit: content: wire Morawiec pronunciation audio (data/audio/morawiec.mp3)
+ff33980768241fcdc99e527037d4b6aef75f26af 3f3ac3333082870903e4b6e1107f43fae72022b7 Piotr <piotr@Piotrs-MacBook-Pro.local> 1780493444 +0200	merge feat/redesign-publish: Fast-forward

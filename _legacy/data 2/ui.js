@@ -1,0 +1,33 @@
+// data/ui.js
+export const UI = {
+  lenses: {
+    map:  { en: 'Connections', pl: 'Powiązania' },
+    theme:{ en: 'By Theme', pl: 'Wg tematu' },
+    time: { en: 'Timeline', pl: 'Oś czasu' },
+    all:  { en: 'All', pl: 'Wszystkie' },
+    exec: { en: 'Execution', pl: 'Wykonanie' },
+    gloss:{ en: 'Glossary', pl: 'Słownik' },
+  },
+  captions: {
+    map:  { en: 'Each dot is a judgment; lines link cases that cite or build on one another. Hover or tap a dot.',
+            pl: 'Każda kropka to wyrok; linie łączą sprawy, które się na siebie powołują lub na sobie budują. Najedź lub dotknij kropki.' },
+    theme:{ en: 'Cases grouped by what was done to the courts.', pl: 'Sprawy pogrupowane według tego, co zrobiono z sądami.' },
+    time: { en: 'Every judgment in order — events on the left, cases on the right. Scroll down through time.',
+            pl: 'Wszystkie wyroki po kolei — wydarzenia po lewej, sprawy po prawej. Przewijaj w dół przez czas.' },
+    all:  { en: 'Every case in a searchable list.', pl: 'Wszystkie sprawy na przeszukiwalnej liście.' },
+    exec: { en: 'Has Poland carried out each judgment? Execution status, case by case.',
+            pl: 'Czy Polska wykonała każdy wyrok? Stan wykonania, sprawa po sprawie.' },
+    gloss:{ en: 'Plain-language definitions of the courts, bodies and legal terms.',
+            pl: 'Przystępne definicje sądów, organów i pojęć prawnych.' },
+  },
+  search: { en: 'Search cases…', pl: 'Szukaj spraw…' },
+  noResults: { en: 'No cases match your search.', pl: 'Żadna sprawa nie pasuje do wyszukiwania.' },
+  close:  { en: 'Close', pl: 'Zamknij' },
+  deeper: { en: 'Deeper detail', pl: 'Więcej szczegółów' },
+  langName: { en: 'EN', pl: 'PL' },
+  courts: { CJEU: { en: 'Court of Justice of the EU', pl: 'Trybunał Sprawiedliwości UE' },
+            ECtHR:{ en: 'European Court of Human Rights', pl: 'Europejski Trybunał Praw Człowieka' } },
+  courtFilter: { en: 'Filter by court', pl: 'Filtruj wg trybunału' },
+  allCourts: { en: 'All', pl: 'Wszystkie' },
+  legend: { cjeu: { en: 'EU law', pl: 'prawo UE' }, echr: { en: 'human rights', pl: 'prawa człowieka' } },
+};

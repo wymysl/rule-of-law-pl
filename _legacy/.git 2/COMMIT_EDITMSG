@@ -1,0 +1,14 @@
+redesign: new visual theme + publish current content
+
+Apply the redesigned presentation layer (index.html masthead, warm
+light palette in css/tokens+layout+constellation+detail+story, app.js
+wiring) on top of the up-to-date data: 26 cases incl. Morawiec, the two
+Rule 39 interim-measure timeline events, and the HUDOC accuracy fixes.
+
+Also adds docs/further-reading.md and gitignores the local redesign
+source folder, HUDOC source files, and *.diff artifacts.
+
+63 tests green; assembled site verified (no console errors, all assets
+200, validation clean).
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>

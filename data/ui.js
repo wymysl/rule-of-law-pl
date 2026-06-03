@@ -31,4 +31,9 @@ export const UI = {
   courtFilter: { en: 'Filter by court', pl: 'Filtruj wg trybunału' },
   allCourts: { en: 'All', pl: 'Wszystkie' },
   legend: { cjeu: { en: 'EU law', pl: 'prawo UE' }, echr: { en: 'human rights', pl: 'prawa człowieka' } },
+  storyAudio: {
+    play:  { en: 'Play narration', pl: 'Odtwórz narrację' },
+    pause: { en: 'Pause narration', pl: 'Wstrzymaj narrację' },
+    label: { en: 'Narrated story', pl: 'Wersja narracyjna' },
+  },
 };
