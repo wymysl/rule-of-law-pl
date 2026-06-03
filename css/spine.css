@@ -1,0 +1,43 @@
+/* css/spine.css — "anatomy of the capture" root-cause view (Dossier) */
+#spine-mount[hidden]{display:none}
+#spine-mount{max-width:880px;margin:0 auto;padding:16px 24px 60px}
+
+.spine-intro{max-width:660px;margin:6px 0 42px}
+.spine-eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--font-mono);font-size:12px;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--crimson)}
+.spine-eyebrow::before{content:'';width:28px;height:2px;background:var(--crimson)}
+.spine-lead{margin-top:16px;font-family:var(--font-display);font-size:21px;line-height:1.5;color:var(--ink-2);text-wrap:pretty}
+
+.spine-trunk{position:relative;margin-left:9px}
+.spine-branch{position:relative;padding:0 0 40px 36px;border-left:2px solid var(--line)}
+.spine-branch:last-child{border-left-color:transparent}
+.spine-node{position:absolute;left:-9px;top:4px;width:16px;height:16px;border-radius:50%;background:var(--paper);
+  border:2px solid var(--line-strong);box-sizing:border-box}
+.spine-branch.is-root{border-left-color:var(--crimson)}
+.spine-branch.is-root .spine-node{border-color:var(--crimson);background:var(--crimson);
+  box-shadow:0 0 0 4px var(--crimson-soft)}
+
+.spine-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.spine-tag{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.spine-branch.is-root .spine-tag{color:var(--crimson)}
+.spine-era{font-family:var(--font-mono);font-size:11px;color:var(--ink-4);font-variant-numeric:tabular-nums}
+.spine-era::before{content:'·';margin-right:10px;color:var(--ink-4)}
+.spine-h{font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.01em;color:var(--ink);margin-top:7px;line-height:1.14;text-wrap:balance}
+.spine-d{font-size:14.5px;line-height:1.55;color:var(--ink-3);margin-top:7px;max-width:62ch}
+
+.spine-cases{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+.spine-chip{display:inline-flex;align-items:center;gap:9px;padding:9px 13px;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-md);cursor:pointer;box-shadow:var(--shadow-sm);transition:border-color .18s,box-shadow .18s,transform .15s}
+.spine-chip:hover{border-color:var(--line-strong);box-shadow:var(--shadow-md);transform:translateY(-1px)}
+.spine-chip:focus-visible{outline:2.5px solid var(--focus);outline-offset:2px}
+.sc-dot{width:9px;height:9px;border-radius:50%;flex:none}
+.spine-chip.cjeu .sc-dot{background:var(--blue);border:1px solid var(--ring)}
+.spine-chip.echr .sc-dot{background:var(--crimson);border:1.5px dashed var(--ring)}
+.sc-nm{font:500 13.5px var(--font-sans);color:var(--ink)}
+.sc-id{font:500 11px var(--font-mono);color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+@media (max-width:600px){
+  #spine-mount{padding:14px 16px 48px}
+  .spine-lead{font-size:19px}
+  .spine-branch{padding-left:30px}
+}

@@ -1,0 +1,83 @@
+/* css/constellation.css */
+#scroller{overflow-x:auto;overflow-y:hidden;margin-top:10px;scrollbar-width:thin}
+#scroller::-webkit-scrollbar{height:7px}
+#scroller::-webkit-scrollbar-thumb{background:var(--menubd);border-radius:99px}
+#stage{position:relative;height:560px}
+
+#edges{position:absolute;inset:0;pointer-events:none;overflow:visible}
+#edges path{fill:none;stroke:var(--edge);stroke-width:1.2;opacity:0;transition:opacity .6s,stroke .4s}
+#edges path.on{opacity:1}
+#edges path.hl{stroke:var(--edgehl);stroke-width:1.8;opacity:1}
+#edges path.dim{opacity:.05}
+
+#axis{position:absolute;height:1px;top:330px;opacity:0;transition:opacity .7s;
+      background:linear-gradient(90deg,transparent,var(--ring) 8%,var(--ring) 92%,transparent)}
+#axis.on{opacity:1}
+.tick{position:absolute;font:500 11px var(--font-mono);color:var(--tick);letter-spacing:.08em;transform:translateX(-50%);opacity:0;transition:opacity .5s;font-variant-numeric:tabular-nums}
+.tick.on{opacity:1}
+
+.label{position:absolute;font:500 11px var(--font-mono);color:var(--ink-3);letter-spacing:.14em;text-transform:uppercase;
+       white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .55s,transform .9s cubic-bezier(.16,1,.3,1)}
+.label.on{opacity:1}
+
+.event{position:absolute;pointer-events:none;opacity:0;transition:opacity .6s,transform .9s cubic-bezier(.16,1,.3,1);outline:none}
+.event.on{opacity:1;pointer-events:auto;cursor:pointer}
+.event.on:hover .dia,.event.on:focus-visible .dia{transform:rotate(45deg) scale(1.5)}
+.event.on:hover .etxt,.event.on:focus-visible .etxt{color:var(--ink)}
+.event.on:focus-visible{outline:2px solid var(--dia);outline-offset:4px;border-radius:6px}
+.event .dia{width:9px;height:9px;background:var(--dia);transform:rotate(45deg);border-radius:1px;margin:0 auto}
+.event .conn{width:1px;background:linear-gradient(180deg,var(--dia),transparent);margin:0 auto;opacity:.5}
+.event .etxt{font:500 12px var(--font-sans);color:var(--event);text-align:center;width:112px;margin-left:-51px;line-height:1.35;margin-top:7px}
+
+.node{position:absolute;top:0;left:0;width:18px;height:18px;will-change:transform;transition:transform .95s cubic-bezier(.16,1,.3,1)}
+.float{width:100%;height:100%;animation:float var(--d,5s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.core{width:100%;height:100%;border-radius:50%;cursor:pointer;position:relative;
+      transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,opacity .4s;box-shadow:var(--shadow-sm)}
+.core::before{content:'';position:absolute;inset:0;border-radius:50%;border:1px solid var(--ring)}
+/* non-colour court cue: CJEU = solid ring, ECtHR = dashed ring (mirrored in the legend) */
+.cjeu .core::before{border-style:solid}
+.echr .core::before{border-width:1.5px;border-style:dashed}
+.cjeu .core{background:var(--cj2)}
+.echr .core{background:var(--ec2)}
+/* On touch, extend each 18px dot to a ~44px invisible hit area (events still
+   target .core). Kept off fine pointers so mouse hover stays precise. */
+@media (pointer:coarse){ .core::after{content:'';position:absolute;inset:-13px;border-radius:50%} }
+.node:hover{z-index:8}
+.node:hover .core{transform:scale(1.5)}
+.node.sel .core{transform:scale(1.7);box-shadow:0 0 0 4px var(--crimson-soft),var(--shadow-md)}
+.node.dim .core{opacity:.18}
+.node.hl .core{transform:scale(1.4)}
+.core:focus-visible{outline:2px solid var(--text);outline-offset:3px}
+/* The node label is a template; the live one is cloned into #tip-layer
+   (see js/tooltips.js) so it stays crisp and can't be clipped at the stage edge. */
+.tip{position:absolute;bottom:160%;left:50%;transform:translateX(-50%);white-space:nowrap;
+     font:500 13px var(--font-sans);color:var(--ink);background:var(--surface);border:1px solid var(--line);padding:6px 11px;
+     border-radius:var(--r-md);opacity:0;pointer-events:none;box-shadow:var(--shadow-md)}
+
+/* persistent dot title — hidden by default, revealed only in the vertical timeline */
+.dot-title{position:absolute;left:150%;top:50%;transform:translateY(-50%);white-space:nowrap;max-width:min(58vw,460px);
+     overflow:hidden;text-overflow:ellipsis;font:500 12.5px var(--font-sans);color:var(--ink-3);letter-spacing:.01em;
+     pointer-events:none;opacity:0;transition:opacity .5s}
+
+/* On touch (no hover) reveal the persistent dot titles in the clustered lenses
+   so judgments can be read without a mouse. Map stays label-free (force graph is
+   too dense); tapping a dot opens its full detail. */
+@media (pointer:coarse){
+  #stage[data-lens="court"] .dot-title,
+  #stage[data-lens="theme"] .dot-title{opacity:.85;font-size:11px;left:130%;max-width:120px}
+}
+
+/* ===== vertical timeline mode ===== */
+#scroller.vtl{overflow-x:hidden;overflow-y:hidden}
+#stage.vtl .dot-title{opacity:.9;pointer-events:auto;cursor:pointer}
+#stage.vtl .node:hover .dot-title{color:var(--text)}
+#stage.vtl .dot-title:hover{color:var(--ink)}
+#stage.vtl .tick{transform:translateY(-50%);font-size:11px;color:var(--tick)}
+/* event landmark: diamond sits on the axis, label runs to its left */
+#stage.vtl .event .conn{display:none}
+#stage.vtl .event .dia{position:absolute;left:-4px;top:-4px;margin:0}
+#stage.vtl .event .etxt{position:absolute;right:16px;top:-9px;width:160px;margin:0;text-align:right}
+#stage.vtl .event.on:hover .dia,#stage.vtl .event.on:focus-visible .dia{transform:rotate(45deg) scale(1.5)}
+
+@media (prefers-reduced-motion: reduce){ .float{animation:none} .node{transition:none} #edges path{transition:opacity .01s} .hero-explore .arrow{animation:none} }

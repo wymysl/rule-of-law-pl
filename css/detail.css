@@ -1,0 +1,105 @@
+/* css/detail.css */
+/* glossary tooltip */
+.gloss{border-bottom:1px dotted var(--ink-4);cursor:help;position:relative}
+.gloss:focus-visible{outline:2.5px solid var(--focus);outline-offset:2px;border-radius:2px}
+.gloss-tip{position:absolute;bottom:135%;left:0;width:250px;background:var(--surface);border:1px solid var(--line);
+  color:var(--ink-2);font-size:13px;font-weight:400;line-height:1.5;padding:12px 14px;border-radius:var(--r-md);
+  opacity:0;pointer-events:none;transition:opacity .2s;z-index:30;box-shadow:var(--shadow-lg)}
+.gloss-tip strong{color:var(--ink)}
+.gloss-quote{display:block;margin-top:8px;padding-top:8px;border-top:1px solid var(--line);font-family:var(--font-display);font-style:italic;color:var(--ink-3);font-size:12px;line-height:1.42}
+/* In-place tooltips are templates only; the live one is cloned into #tip-layer
+   (see js/tooltips.js) so it can't be clipped by the card/window edge. */
+
+/* case detail card */
+.card{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(160%);width:min(620px,92vw);
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px 32px;max-height:80vh;overflow-y:auto;
+  box-shadow:var(--shadow-lg);transition:transform .6s cubic-bezier(.16,1,.3,1);z-index:60}
+.card.show{transform:translateX(-50%) translateY(0)}
+.card:focus{outline:none}
+@media (prefers-reduced-motion: reduce){ .card{transition:none} }
+@media (prefers-reduced-motion: reduce) and (max-width:760px){ .card{transition:none} }
+.card .close{position:absolute;top:18px;right:20px;color:var(--ink-3);cursor:pointer;font-size:22px;border:none;background:none;line-height:1}
+.card .close:hover{color:var(--ink)}
+.card .close:focus-visible{outline:2.5px solid var(--focus);outline-offset:2px;border-radius:6px}
+.card .pill{display:inline-block;font:500 11px var(--font-mono);letter-spacing:.06em;text-transform:uppercase;padding:5px 11px;border-radius:var(--r-sm);margin-bottom:14px}
+.pill.cjeu{background:var(--blue-soft);color:var(--blue)}
+.pill.echr{background:var(--crimson-soft);color:var(--crimson)}
+.pill.event-pill{background:var(--gold-soft);color:var(--gold)}
+.card h3{font-family:var(--font-display);font-size:28px;font-weight:600;letter-spacing:-.02em;line-height:1.12;color:var(--ink)}
+.card .cid{color:var(--ink-3);font-family:var(--font-mono);font-size:12.5px;margin-top:8px;font-weight:400;letter-spacing:.01em;font-variant-numeric:tabular-nums}
+.card .plain-lead{color:var(--ink);font-family:var(--font-display);font-size:20px;line-height:1.46;margin-top:18px;font-weight:500;letter-spacing:-.01em}
+.card .plain-lead[hidden]{display:none}
+.card .lead{color:var(--ink-2);font-size:15px;line-height:1.62;margin-top:12px;font-weight:400}
+
+/* pronunciation aid */
+.title-row{display:flex;align-items:center;gap:10px}
+.pron-play{flex:none;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:var(--paper-2);
+  color:var(--crimson);font-size:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .2s,transform .15s}
+.pron-play[hidden]{display:none}
+.pron-play:hover{background:var(--paper-3);transform:scale(1.08)}
+.pron-play:active{transform:scale(.94)}
+.pron-play:focus-visible{outline:2.5px solid var(--focus);outline-offset:2px}
+.pron{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-3);font-style:normal;font-weight:400;margin-top:5px;letter-spacing:.02em}
+.pron[hidden]{display:none}
+
+/* deeper section */
+.deep{margin-top:22px;border-top:1px solid var(--line);padding-top:4px}
+.deep>summary{cursor:pointer;color:var(--crimson);font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:13px 0;
+  outline:none;list-style:none;display:flex;align-items:center;gap:9px}
+.deep>summary::-webkit-details-marker{display:none}
+.deep>summary::before{content:'';width:6px;height:6px;border-right:2px solid var(--crimson);border-bottom:2px solid var(--crimson);
+  transform:rotate(-45deg);transition:transform .25s;margin-left:2px}
+.deep[open]>summary::before{transform:rotate(45deg)}
+.deep>summary:focus-visible{outline:2.5px solid var(--focus);outline-offset:2px;border-radius:4px}
+.deep-body{margin-top:18px;border-top:1px solid var(--line);padding-top:2px}
+.deep-body h4{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);margin:22px 0 9px;font-weight:500;
+  display:flex;align-items:center;gap:9px}
+.deep-body h4::before{content:'';width:16px;height:2px;border-radius:2px;background:var(--crimson)}
+.deep-body p{font-size:14.5px;line-height:1.66;color:var(--ink-2);font-weight:400}
+/* execution sub-items, nested under the "Execution" section heading */
+.exec-detail{margin:4px 0 2px;padding-left:15px;border-left:1px solid var(--line)}
+.exec-detail .exec-sub{font-family:var(--font-sans);font-size:13px;font-weight:600;color:var(--ink);margin:14px 0 3px;letter-spacing:.005em}
+.exec-detail .exec-sub:first-child{margin-top:4px}
+.exec-detail .exec-sub-body{font-size:14px;line-height:1.6;color:var(--ink-2);font-weight:400}
+
+/* statement of facts */
+.facts-list{margin:8px 0;padding:0;list-style:none}
+.facts-list li{position:relative;font-size:14.5px;line-height:1.6;color:var(--ink-2);font-weight:400;padding-left:20px;margin-bottom:10px}
+.facts-list li::before{content:'';position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--crimson)}
+
+/* violation callout */
+.callout{margin:18px 0 6px;padding:16px 18px;border-radius:var(--r-md);background:var(--crimson-soft);
+  border:1px solid var(--line);border-left:3px solid var(--crimson)}
+.callout.cjeu{background:var(--blue-soft);border-left-color:var(--blue)}
+.callout h4{margin-top:0}
+.callout h4::before{background:var(--crimson)}
+.callout.cjeu h4::before{background:var(--blue)}
+.callout p{color:var(--ink-2)}
+
+/* case cross-reference links inside prose */
+.case-ref{position:relative;color:var(--crimson);border-bottom:1px dashed color-mix(in srgb,var(--crimson) 50%,transparent);cursor:pointer}
+.case-ref:hover{border-bottom-style:solid}
+.case-ref:focus-visible{outline:2.5px solid var(--focus);outline-offset:2px;border-radius:2px}
+.ref-tip{position:absolute;bottom:145%;left:0;width:min(270px,72vw);background:var(--surface);border:1px solid var(--line);
+  color:var(--ink-2);font-size:13px;font-weight:400;line-height:1.5;padding:12px 14px;border-radius:var(--r-md);opacity:0;
+  pointer-events:none;transition:opacity .2s,transform .2s;transform:translateY(5px);z-index:40;
+  box-shadow:var(--shadow-lg)}
+.ref-tip strong{color:var(--crimson);font-weight:600;display:inline-block;margin-bottom:3px}
+
+/* body-level portal that holds the currently-shown tooltip clone */
+#tip-layer{position:fixed;inset:0;pointer-events:none;z-index:200}
+.tip-portal{position:fixed!important;bottom:auto!important;right:auto!important;margin:0!important;
+  transform:none!important;animation:none!important;pointer-events:none;transition:opacity .18s}
+
+/* related cases */
+.rel-list{list-style:none;padding:0;margin:6px 0}
+.rel-list li{font-size:14px;margin-bottom:8px;color:var(--ink-2);line-height:1.5}
+.rel-link{background:none;border:none;color:var(--crimson);cursor:pointer;font:inherit;padding:0;border-bottom:1px dashed color-mix(in srgb,var(--crimson) 50%,transparent)}
+.rel-link:hover{border-bottom-style:solid}
+.rel-link:focus-visible{outline:2.5px solid var(--focus);outline-offset:2px;border-radius:3px}
+
+/* official links */
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.links a{color:var(--crimson);font:500 13px var(--font-sans);text-decoration:none;border:1px solid var(--line);padding:8px 15px;border-radius:var(--r-md);transition:background .2s,border-color .2s}
+.links a:hover{background:var(--crimson-soft);border-color:color-mix(in srgb,var(--crimson) 40%,var(--line))}
+.links a:focus-visible{outline:2.5px solid var(--focus);outline-offset:2px}

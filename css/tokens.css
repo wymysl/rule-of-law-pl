@@ -1,0 +1,85 @@
+/* css/tokens.css — "The Dossier" design system
+   Warm-paper editorial. Oxblood judicial crimson + EU institutional blue.
+   Newsreader (display serif) · Archivo (UI/data) · IBM Plex Mono (the record). */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  /* ---------- Brand palette ---------- */
+  --paper:#FAF7F1; --paper-2:#F2ECE1; --paper-3:#E9E1D3;
+  --ink:#16130E; --ink-2:#3B3528; --ink-3:#6B6354; --ink-4:#9A9182;
+  --line:#DCD4C5; --line-strong:#C4BAA6;
+  --crimson:#8E1B2B; --crimson-deep:#6C1320; --crimson-soft:#F3E1E0;
+  --blue:#16335B; --blue-deep:#0F2543; --blue-soft:#E2E8F1;
+  --gold:#B0883A; --gold-soft:#F2E9D6;
+  --ink-bg:#14110C; --ink-bg-2:#221C13;
+  --on-ink:#F6F1E7; --on-ink-muted:#A79E8C; --on-ink-line:#3A3225;
+
+  /* data outcome states */
+  --status-violation:#8E1B2B; --status-no-violation:#3F6B4A; --status-pending:#B0883A;
+  --status-violation-bg:#F3E1E0; --status-no-violation-bg:#E2EBE3; --status-pending-bg:#F2E9D6;
+
+  /* ---------- Type ---------- */
+  --font-display:'Newsreader',Georgia,'Times New Roman',serif;
+  --font-sans:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  --ls-eyebrow:.16em;
+
+  /* ---------- Shadows — soft, warm, never harsh ---------- */
+  --shadow-sm:0 1px 2px rgba(22,19,14,.06),0 1px 1px rgba(22,19,14,.04);
+  --shadow-md:0 4px 14px rgba(22,19,14,.08),0 1px 3px rgba(22,19,14,.05);
+  --shadow-lg:0 18px 48px rgba(22,19,14,.14),0 4px 12px rgba(22,19,14,.07);
+
+  /* ---------- Radii (document-like) ---------- */
+  --r-xs:2px; --r-sm:4px; --r-md:6px; --r-lg:10px; --r-pill:999px;
+
+  /* ---------- Motion ---------- */
+  --ease:cubic-bezier(.22,.61,.36,1);
+
+  /* ============================================================
+     Legacy variable bridge — names consumed by the existing
+     component CSS/JS, remapped onto the Dossier palette.
+     ============================================================ */
+  --bg:var(--paper);
+  --text:var(--ink);
+  --sub:var(--ink-3);
+  --surface:#FFFFFF;
+  --card:var(--surface);
+  --cardbd:var(--line);
+  --menu:var(--paper-2);
+  --menubd:var(--line);
+  --ring:rgba(22,19,14,.16);
+  --focus:var(--crimson);
+
+  /* court colours — CJEU = EU blue · ECtHR = oxblood crimson */
+  --cj1:#2A4E7E; --cj2:#16335B; --pillC:#16335B;
+  --ec1:#A8323F; --ec2:#8E1B2B; --pillE:#8E1B2B;
+
+  /* ink-on-paper ledger diagram */
+  --edge:rgba(22,19,14,.18);
+  --edgehl:rgba(142,27,43,.62);
+  --tick:var(--ink-3);
+  --event:var(--ink-3);
+  --dia:var(--gold);
+
+  --anim:1;
+}
+
+body{
+  font-family:var(--font-sans);
+  min-height:100vh;
+  color:var(--text);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  font-variant-ligatures:common-ligatures;
+}
+
+/* shared editorial helpers */
+.t-eyebrow{font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:var(--ls-eyebrow);
+  text-transform:uppercase;color:var(--crimson)}
+.tnum{font-variant-numeric:tabular-nums}
+
+@media (prefers-reduced-motion: reduce){:root{--anim:0}body{transition:none}}
